@@ -724,7 +724,7 @@ _libvhd_io_open(const char *pathname,
 		goto fail;
 	}
 
-	fd = _std_open("/dev/null", O_RDONLY, 0);
+	fd = _std_open("/dev/null", O_RDONLY | O_CLOEXEC, 0);
 	if (fd == -1) {
 		err = errno;
 		goto fail;
